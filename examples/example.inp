@@ -1,0 +1,14 @@
+# Example input file for liboct_parser
+Units = 1                       # predefined symbols: pi, e, i, yes/no, true/false
+NAtoms = 3
+Cutoff = 20*Units
+Temperature = 300               # K
+Title = "My simulation"
+Restart = no
+Field = 0.01*exp(i*pi/4)        # complex values are supported
+
+%Atoms
+ "O" |  0.000 | 0.000 | 0.000
+ "H" |  0.757 | 0.586 | 0.000
+ "H" | -0.757 | 0.586 | 0.000
+%

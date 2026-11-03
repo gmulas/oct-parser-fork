@@ -1,0 +1,11 @@
+prefix=@prefix@
+libdir=@libdir@
+fmoddir=@fmoddir@
+
+Name: oct_parser_f
+Description: Fortran 2008 module for the Octopus input-file parser (use oct_parser)
+URL: https://www.octopus-code.org
+Version: @PACKAGE_VERSION@
+Requires: oct_parser = @PACKAGE_VERSION@
+Cflags: -I${fmoddir}
+Libs: -L${libdir} -loct_parser_f

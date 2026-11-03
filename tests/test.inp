@@ -1,0 +1,24 @@
+# Test input for liboct_parser
+gs = 1
+td = 2
+CalculationMode = td          # uses a symbol defined above
+NumberOfSteps = 100
+Spacing = 0.25
+BoxSize = 4*Spacing + sqrt(16)
+Radius = 3.0                  # overridden by OCTP_TEST_Radius in "make check"
+Phase = exp(i*pi/2)
+Title = "Water molecule"
+Verbose = yes
+Debug = false
+LongExpression = 1 + 2 + \
+                 3 + 4
+UnusedTypo = 42
+
+%Species
+ "H" | 1.00794 | 1
+ "O" | 15.9994 | 8 | 2 + 3*i
+%
+
+%Lattice
+ Spacing | 2*Spacing
+%

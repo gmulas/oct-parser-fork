@@ -1,0 +1,13 @@
+prefix=@prefix@
+libdir=@libdir@
+includedir=@includedir@
+octopus_commit=@OCTOPUS_COMMIT@
+
+Name: oct_parser
+Description: Input-file parser of the Octopus code (standalone liboct_parser)
+URL: https://www.octopus-code.org
+Version: @PACKAGE_VERSION@
+Requires: @PC_REQUIRES@
+Cflags: -I${includedir} @PC_GSL_CFLAGS@
+Libs: -L${libdir} -loct_parser
+Libs.private: @PC_GSL_LIBS@ @LIBS@
