@@ -1,0 +1,35 @@
+# configure output
+/Makefile
+/config.h
+/config.log
+/config.status
+/stamp-h1
+/libtool
+/oct_parser.pc
+/oct_parser_f.pc
+/OctParserConfig.cmake
+/OctParserConfigVersion.cmake
+
+# autotools files regenerated when timestamps look stale (fresh clones)
+autom4te.cache/
+*~
+
+# compilation
+*.o
+*.lo
+*.la
+*.a
+*.so
+*.so.*
+*.mod
+.libs/
+.deps/
+.dirstamp
+
+# make check
+/tests/test_c
+/tests/test_cxx
+/tests/test_f
+*.log
+*.trs
+*.log_parser
