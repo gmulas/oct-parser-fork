@@ -209,12 +209,24 @@ standard `iso_c_binding`. A `.mod` file can only be used with the compiler
   functions with the same names in your programs.
 - `parse_input_string` uses `fmemopen` (POSIX 2008; on macOS from 10.13).
 
-## Licence
+## Licence and authors
 
-GNU General Public License: the source files state "version 2 or (at your
-option) any later version"; Octopus as a whole is distributed under GPL v3,
-whose text is in `COPYING`. Programs you distribute linked with this library
-must comply with the GPL.
+The parser is part of Octopus. Its source files are copyright of the
+Octopus authors (M. Marques, A. Castro, A. Rubio, G. Bertsch, D. Strubbe,
+A. Buccheri, H. Menke; see the header of each file) and are distributed
+under the GNU General Public License, "version 2, or (at your option) any
+later version" (SPDX `GPL-2.0-or-later`), as their headers state. The Octopus
+code as a whole is distributed under the GPL version 2 (Octopus manual,
+"Copying"). `src/grammar.c` is the output of GNU Bison, under the GPL
+version 3 or later with the Bison exception.
+
+The files added here (`src/oct_parser_fbind.c`, `src/varinfo_stubs.c`,
+`fortran/oct_parser.f90`, the build system, tests and examples) are by
+Giacomo Mulas and have the same licence, `GPL-2.0-or-later`.
+
+The text of the GPL version 3 is in `COPYING`, that of version 2 in
+`COPYING.GPL-2`. Programs you distribute linked with this library must
+comply with the GPL.
 
 ## Maintainer notes
 
