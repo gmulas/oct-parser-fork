@@ -1,4 +1,16 @@
 /*
+ Copyright (C) 2026 Giacomo Mulas
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2, or (at your option)
+ any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
  Small C helpers used by the Fortran module oct_parser (fortran/oct_parser.f90).
 
  Most of the C API of liboct_parser is called directly from Fortran through
