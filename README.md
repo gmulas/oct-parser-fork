@@ -50,6 +50,17 @@ and provides C (also usable from C++) and Fortran 2008 interfaces to query it.
   a replacement for, nor a development branch of, Octopus: improvements to
   the parser belong upstream. It is used, for example, by
   [AnharmoniCaOs](https://sourceforge.net/projects/anharmonica/).
+- **In the spirit of Octopus.** This fork exists with gratitude to the
+  Octopus developers, whose work it relies on entirely, and with no intent
+  of competing with or diverging from their project. Its only aim is to
+  make their parser available to more users, under the same free licence.
+  Bug reports that concern the parsing itself are forwarded upstream.
+- **Following upstream.** The fork follows the development of the parser in
+  Octopus and brings in its fixes and improvements. A weekly GitHub
+  workflow (`.github/workflows/upstream-check.yml`) lists the Octopus
+  commits that changed `liboct_parser/` after the one this copy comes from,
+  and opens an issue here when there are any; the update itself is done by
+  hand, as described in `PROVENANCE.md`.
 
 ## Requirements
 
