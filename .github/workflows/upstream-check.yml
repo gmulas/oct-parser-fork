@@ -1,0 +1,41 @@
+# Weekly check for changes to the parser in Octopus after the commit this
+# copy comes from (OCTOPUS_COMMIT in configure.ac). If there are any, open an
+# issue (or comment on the open one) listing them. Nothing is changed in the
+# repository: the update is done by hand, see PROVENANCE.md.
+name: upstream-check
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # Mondays 05:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List the Octopus commits that changed liboct_parser/
+        id: list
+        run: |
+          base=$(sed -n 's/.*OCTOPUS_COMMIT[^0-9a-f]*\([0-9a-f]\{40\}\).*/\1/p' configure.ac | head -1)
+          test -n "$base" || { echo "OCTOPUS_COMMIT not found in configure.ac"; exit 1; }
+          git clone --quiet --filter=blob:none --no-checkout \
+            https://gitlab.com/octopus-code/octopus.git octopus
+          git -C octopus log --format='- %h %ad %an: %s' --date=short \
+            "$base"..origin/main -- liboct_parser > new.txt
+          echo "base=$base" >> "$GITHUB_OUTPUT"
+          echo "count=$(wc -l < new.txt)" >> "$GITHUB_OUTPUT"
+          cat new.txt
+      - name: Open or update the issue
+        if: steps.list.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Octopus has changed liboct_parser since ${{ steps.list.outputs.base }}"
+          { echo "Commits in Octopus (main) that changed \`liboct_parser/\` after the one this copy comes from:"
+            echo; cat new.txt; echo
+            echo "See PROVENANCE.md, \"Updating to a newer Octopus\"."; } > body.md
+          n=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file body.md
+          else gh issue create --title "$title" --body-file body.md; fi

@@ -3,7 +3,6 @@
 This is `liboct_parser`, the input-file parser of the
 [Octopus](https://www.octopus-code.org) code, extracted so that it can be
 built and installed on its own, without Octopus and its dependencies.
-See `PROVENANCE.md` for the exact Octopus commit and what was changed.
 
 It reads input files like this one:
 
@@ -24,6 +23,42 @@ LongExpr    = 1 + 2 + \
 ```
 
 and provides C (also usable from C++) and Fortran 2008 interfaces to query it.
+
+## Origin, credits and why this fork exists
+
+- **Origin.** The parser sources come from Octopus
+  (https://gitlab.com/octopus-code/octopus), directory `liboct_parser/` of
+  the `main` branch at commit `80d00c1432a48a87245fd826b8dcf39ea681b06f`
+  (2026-10-30), in the 16.x version line (Octopus 16.4 was released on
+  2026-04-21). `PROVENANCE.md` lists exactly which files were taken
+  unchanged, which were changed (one header, with `extern "C"` guards and
+  one more declaration) and which were added.
+- **Credits.** The parser is the work of the Octopus authors: M. Marques,
+  A. Castro, A. Rubio, G. Bertsch, D. Strubbe, A. Buccheri and H. Menke, as
+  stated in the headers of its files. Octopus as a whole is developed by
+  the team listed on its
+  ["About Octopus"](https://octopus-code.org/documentation/16/manual/about_octopus/)
+  page. If you use this library in published work, an acknowledgement of
+  its origin is appreciated, for example: "The input parser is
+  liboct_parser from the Octopus code (https://www.octopus-code.org)".
+- **Why a fork.** Only to make the parser usable in other projects with a
+  compatible licence without building the whole of Octopus. It adds a
+  standalone build (autotools, pkg-config and CMake files), a Fortran 2008
+  interface and tests, and changes nothing in the parsing itself. It is not
+  a replacement for, nor a development branch of, Octopus: improvements to
+  the parser belong upstream. It is used, for example, by
+  [AnharmoniCaOs](https://sourceforge.net/projects/anharmonica/).
+- **In the spirit of Octopus.** This fork exists with gratitude to the
+  Octopus developers, whose work it relies on entirely, and with no intent
+  of competing with or diverging from their project. Its only aim is to
+  make their parser available to more users, under the same free licence.
+  Bug reports that concern the parsing itself are forwarded upstream.
+- **Following upstream.** The fork follows the development of the parser in
+  Octopus and brings in its fixes and improvements. A weekly GitHub
+  workflow (`.github/workflows/upstream-check.yml`) lists the Octopus
+  commits that changed `liboct_parser/` after the one this copy comes from,
+  and opens an issue here when there are any; the update itself is done by
+  hand, as described in `PROVENANCE.md`.
 
 ## Requirements
 
