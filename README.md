@@ -38,11 +38,9 @@ and provides C (also usable from C++) and Fortran 2008 interfaces to query it.
   stated in the headers of its files. Octopus as a whole is developed by
   the team listed on its
   ["About Octopus"](https://octopus-code.org/documentation/16/manual/about_octopus/)
-  page. If you use this library in published work, please cite Octopus,
-  for example M. A. L. Marques, A. Castro, G. F. Bertsch and A. Rubio,
-  "octopus: a first-principles tool for excited electron-ion dynamics",
-  Comput. Phys. Commun. **151**, 60 (2003), and the more recent papers
-  listed on that page.
+  page. If you use this library in published work, an acknowledgement of
+  its origin is appreciated, for example: "The input parser is
+  liboct_parser from the Octopus code (https://www.octopus-code.org)".
 - **Why a fork.** Only to make the parser usable in other projects with a
   compatible licence without building the whole of Octopus. It adds a
   standalone build (autotools, pkg-config and CMake files), a Fortran 2008
