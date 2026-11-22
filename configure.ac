@@ -10,6 +10,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([1.13 foreign subdir-objects -Wall -Wno-portability dist-bzip2])
+AM_MAINTAINER_MODE
 AM_SILENT_RULES([yes])
 
 dnl Octopus commit the sources come from (informational).
